@@ -21,7 +21,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao{
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<User> getAllCategories() {
+	public ArrayList<User> getAllUsers() {
 		// TODO Auto-generated method stub
 		Criteria criteria = super.getSession().createCriteria(User.class);
 		return (ArrayList<User>)criteria.list();
