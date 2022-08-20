@@ -6,7 +6,7 @@ import com.arisglobal.entity.User;
 
 public interface UserDao {
 	public User getUserById(int id);
-	public ArrayList<User> getAllCategories();
+	public ArrayList<User> getAllUsers();
 	public void saveUser(User User);
 	public void deleteUser(User User);
 	public void updateUser(User User);
