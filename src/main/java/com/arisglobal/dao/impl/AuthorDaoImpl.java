@@ -29,7 +29,7 @@ public class AuthorDaoImpl extends AbstractDao implements AuthorDao {
 
 	public void saveAuthor(Author Author) {
 		// TODO Auto-generated method stub
-		super.save(Author);
+		super.persist(Author);
 
 	}
 
