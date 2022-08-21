@@ -28,7 +28,7 @@ public class TransactionDaoImpl extends AbstractDao implements TransactionDao {
 
 	public void saveTransaction(Transaction Transaction) {
 		// TODO Auto-generated method stub
-		super.save(Transaction);
+		super.persist(Transaction);
 
 	}
 
