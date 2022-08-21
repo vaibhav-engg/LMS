@@ -23,7 +23,7 @@ public class UserController {
 	public String redirectViewAllUser(Model model)
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		UserService service = (UserService)context.getBean("userService");
 		ArrayList<User> list = service.findAllUsers();
 		model.addAttribute("userlist", list);
 		return "alluser";
@@ -32,7 +32,7 @@ public class UserController {
 	public String redirectUserDetail(@ModelAttribute("user") User user,Model model)
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		UserService service = (UserService)context.getBean("userService");
 		User res = service.getUserById(user.getId());
 		user.setAddress(res.getAddress());
 		user.setEmail(res.getEmail());
@@ -45,7 +45,7 @@ public class UserController {
 	public String redirectSaveUser(@ModelAttribute("user") User user)
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		UserService service = (UserService)context.getBean("userService");
 		service.updateUser(user);
 		return "manageuser";
 	}
