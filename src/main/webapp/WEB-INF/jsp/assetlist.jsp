@@ -10,7 +10,7 @@
 
 <body>
 	
-	
+	${message}
 	<form:form method="Get" action="search">
 	<table>
 			<tr>
@@ -58,7 +58,7 @@
 				<td>${asset.created_date}</td>
 				<td>${asset.asset_type}</td>	
 				<td>${asset.number_copies}</td>
-
+				<td><a href"/borrow/${asset.id}">Borrow</a>/td>
 				
 			</tr>
 		</c:forEach>
