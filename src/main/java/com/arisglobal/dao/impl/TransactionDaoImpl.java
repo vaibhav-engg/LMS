@@ -45,5 +45,13 @@ public class TransactionDaoImpl extends AbstractDao implements TransactionDao {
 		super.update(Transaction);
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Transaction> getUserTransaction(int lms_user_id) {
+		Criteria criteria = super.getSession().createCriteria(Transaction.class);
+		criteria.add(Restrictions.eq("lms_user_id",lms_user_id));
+		criteria.add(Restrictions.eq("return_date", null));
+		return (ArrayList<Transaction>)criteria.list();
+	}
 
 }
