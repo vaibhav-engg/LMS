@@ -10,6 +10,7 @@
 <body>
 
 <form:form action="saveuser" modelAttribute="user">
+User ID: <input value="${user.id}" name="id" readonly/><br>
 Username: ${user.user_name}<br>
 User Email : ${user.email}<br>
 Contact Number: ${user.mobile_number}<br>
@@ -18,6 +19,7 @@ User role: <form:select path="role_id" value="${user.role_id}">
 <form:option value="2" label="Librarian"/>
 <form:option value="3" label="Super Admin"/>
 </form:select>
+<input type="submit"/>
 </form:form>
 </body>
 </html>

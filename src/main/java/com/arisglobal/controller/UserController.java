@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,26 +15,26 @@ import com.arisglobal.service.UserService;
 
 @Controller
 public class UserController {
+	@Autowired
+	private UserService userService;
 	@RequestMapping("/edituser")
-	public String redirectEditUser()
+	public String redirectEditUser(Model model)
 	{
+		model.addAttribute("user",new User());
 		return "edituser";
 	}
 	@RequestMapping("/alluser")
 	public String redirectViewAllUser(Model model)
 	{
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserService service = (UserService)context.getBean("userService");
-		ArrayList<User> list = service.findAllUsers();
+		List<User> list = userService.findAllUsers();
 		model.addAttribute("userlist", list);
 		return "alluser";
 	}
 	@RequestMapping("/userdetail")
 	public String redirectUserDetail(@ModelAttribute("user") User user,Model model)
 	{
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserService service = (UserService)context.getBean("userService");
-		User res = service.getUserById(user.getId());
+		User res = userService.findById(user.getId());
+		user.setUser_name(res.getUser_name());
 		user.setAddress(res.getAddress());
 		user.setEmail(res.getEmail());
 		user.setMobile_number(res.getMobile_number());
@@ -44,9 +45,15 @@ public class UserController {
 	@RequestMapping("/saveuser")
 	public String redirectSaveUser(@ModelAttribute("user") User user)
 	{
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserService service = (UserService)context.getBean("userService");
-		service.updateUser(user);
+		User res = userService.findById(user.getId());
+		res.setRole_id(user.getRole_id());
+		userService.updateUser(res);
+		return "manageuser";
+//		return "test";
+	}
+	@RequestMapping("/manageuser")
+	public String redirectMain()
+	{
 		return "manageuser";
 	}
 }

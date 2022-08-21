@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.arisglobal</groupId>
-  <artifactId>LMS</artifactId>
+  <artifactId>ManageUser</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
@@ -12,7 +12,7 @@
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 	</properties>
-  <name>LMS Maven Webapp</name>
+  <name>ManageUser Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <!-- Spring -->
@@ -163,7 +163,7 @@
 </dependency>
   </dependencies>
   <build>
-    <finalName>LMS</finalName>
+    <finalName>ManageUser</finalName>
     <plugins>
 		    <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
