@@ -4,11 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.*;
 
 import com.arisglobal.entity.User;
-import com.arisglobal.dao.impl.UserDaoImpl;
+import com.arisglobal.service.UserService;
 
 @Controller
 public class UserController {
@@ -20,16 +22,18 @@ public class UserController {
 	@RequestMapping("/alluser")
 	public String redirectViewAllUser(Model model)
 	{
-		UserDaoImpl obj = new UserDaoImpl();
-		ArrayList<User> list = obj.findAllUsers();
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		ArrayList<User> list = service.findAllUsers();
 		model.addAttribute("userlist", list);
 		return "alluser";
 	}
 	@RequestMapping("/userdetail")
 	public String redirectUserDetail(@ModelAttribute("user") User user,Model model)
 	{
-		UserDaoImpl obj = new UserDaoImpl();
-		User res = obj.getUserById(user.getId());
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		User res = service.getUserById(user.getId());
 		user.setAddress(res.getAddress());
 		user.setEmail(res.getEmail());
 		user.setMobile_number(res.getMobile_number());
@@ -40,8 +44,9 @@ public class UserController {
 	@RequestMapping("/saveuser")
 	public String redirectSaveUser(@ModelAttribute("user") User user)
 	{
-		UserDaoImpl obj = new UserDaoImpl();
-		obj.saveUser(user);
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		DepartmentService service = (DepartmentService)context.getBean("departmentService");
+		service.updateUser(user);
 		return "manageuser";
 	}
 }
