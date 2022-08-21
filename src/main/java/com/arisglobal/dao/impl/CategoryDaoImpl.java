@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.CategoryDao;
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Category;
 @Repository("categoryDao")
 public class CategoryDaoImpl extends AbstractDao implements CategoryDao {

@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.RoleDao;
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Role;
 
 @Repository("roleDao")

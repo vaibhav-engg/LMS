@@ -1,10 +1,8 @@
-package com.arisglobal.dao;
-
-import java.util.List;
+package com.arisglobal.service;
 
 import com.arisglobal.entity.User;
-
-public interface UserDao {
+import java.util.List;
+public interface UserService {
 	void saveUser(User user);
 	List<User> findAllUsers();
 	void deleteUserByID(int id);

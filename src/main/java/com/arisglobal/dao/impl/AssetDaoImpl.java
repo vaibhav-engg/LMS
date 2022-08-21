@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.AssetDao;
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Asset;
 @Repository("assetDao")
 public class AssetDaoImpl extends AbstractDao implements AssetDao {

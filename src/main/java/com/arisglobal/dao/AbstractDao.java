@@ -1,22 +1,25 @@
-package com.arisglobal.dao.impl;
+package com.arisglobal.dao;
 
-import com.arisglobal.dao.BaseDao;
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
-public abstract class AbstractDao implements BaseDao {
+
+public abstract class AbstractDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	protected Session getSession()
 	{
 		return sessionFactory.getCurrentSession();
 	}
-	public void save(Object object)
+	public void persist(Object entity)
 	{
-		getSession().persist(object);
+		getSession().persist(entity);
+	}
+	public void delete(Object entity)
+	{
+		getSession().delete(entity);
 	}
 	public void update(Object object)
 	{
 		getSession().update(object);
 	}
-	
 }

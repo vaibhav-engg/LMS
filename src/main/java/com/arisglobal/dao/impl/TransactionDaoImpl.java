@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.TransactionDao;
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Transaction;
 @Repository("transactionDao")
 public class TransactionDaoImpl extends AbstractDao implements TransactionDao {

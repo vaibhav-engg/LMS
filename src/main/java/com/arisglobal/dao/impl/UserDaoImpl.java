@@ -1,48 +1,49 @@
 package com.arisglobal.dao.impl;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.dao.UserDao;
 import com.arisglobal.entity.User;
 @Repository("userDao")
-public class UserDaoImpl extends AbstractDao implements UserDao{
+public class UserDaoImpl extends AbstractDao implements UserDao {
 
-	public User getUserById(int id) {
+	public void saveUser(User user) {
 		// TODO Auto-generated method stub
-		Criteria criteria = super.getSession().createCriteria(User.class);
-		criteria.add(Restrictions.eq("id", id));
-		return (User)criteria.uniqueResult();
+		persist(user);
 		
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<User> getAllUsers() {
+	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
-		Criteria criteria = super.getSession().createCriteria(User.class);
-		return (ArrayList<User>)criteria.list();
+		Criteria criteria = getSession().createCriteria(User.class);
+		return (List<User>)criteria.list();
 	}
 
-	public void saveUser(User User) {
+	public void deleteUserByID(int id) {
 		// TODO Auto-generated method stub
-		super.save(User);
+		Query query = getSession().createQuery("delete from lms_user where id=:id");
+		query.setInteger("id", id);
+		query.executeUpdate();
 		
 	}
 
-	public void deleteUser(User User) {
+	public User findById(int id) {
 		// TODO Auto-generated method stub
-		Query query = super.getSession().createQuery("Delete from lms_user where id=:id");
-		query.setInteger("id", User.getId());
-		query.executeUpdate();
+		Criteria criteria = getSession().createCriteria(User.class);
+		criteria.add(Restrictions.eq("id",id));
+		return (User)criteria.uniqueResult();
 	}
 
-	public void updateUser(User User) {
+	public void updateUser(User user) {
 		// TODO Auto-generated method stub
-		super.update(User);
+		getSession().update(user);
 		
 	}
 
