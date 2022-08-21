@@ -58,7 +58,7 @@
 				<td>${asset.created_date}</td>
 				<td>${asset.asset_type}</td>	
 				<td>${asset.number_copies}</td>
-				<td><a href"/borrow/${asset.id}">Borrow</a>/td>
+				<td><button><a href"/borrow/${asset.id}">Borrow</a></button></td>
 				
 			</tr>
 		</c:forEach>
