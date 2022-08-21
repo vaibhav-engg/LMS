@@ -14,37 +14,36 @@ import com.arisglobal.entity.User;
 public class UserDaoImpl extends AbstractDao implements UserDao {
 
 	public void saveUser(User user) {
-		// TODO Auto-generated method stub
 		persist(user);
 		
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
 		Criteria criteria = getSession().createCriteria(User.class);
 		return (List<User>)criteria.list();
 	}
 
 	public void deleteUserByID(int id) {
-		// TODO Auto-generated method stub
 		Query query = getSession().createQuery("delete from lms_user where id=:id");
 		query.setInteger("id", id);
-		query.executeUpdate();
-		
+		query.executeUpdate();	
 	}
 
 	public User findById(int id) {
-		// TODO Auto-generated method stub
 		Criteria criteria = getSession().createCriteria(User.class);
 		criteria.add(Restrictions.eq("id",id));
 		return (User)criteria.uniqueResult();
 	}
-
+	
+	public User findByEmail(String email) {
+		Criteria criteria = getSession().createCriteria(User.class);
+		criteria.add(Restrictions.eq("email",email));
+		return (User)criteria.uniqueResult();
+	}
+	
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
 		getSession().update(user);
-		
 	}
 
 }
