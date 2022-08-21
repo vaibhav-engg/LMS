@@ -1,13 +1,13 @@
 package com.arisglobal.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.arisglobal.entity.User;
 
 public interface UserDao {
-	public User getUserById(int id);
-	public ArrayList<User> getAllCategories();
-	public void saveUser(User User);
-	public void deleteUser(User User);
-	public void updateUser(User User);
+	void saveUser(User user);
+	List<User> findAllUsers();
+	void deleteUserByID(int id);
+	User findById(int id);
+	void updateUser(User user);
 }

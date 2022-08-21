@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.RoleDao;
+import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Role;
 
 @Repository("roleDao")
@@ -29,7 +30,7 @@ public class RoleDaoImpl extends AbstractDao implements RoleDao {
 
 	public void saveRole(Role role) {
 		// TODO Auto-generated method stub
-		super.save(role);
+		super.persist(role);
 
 	}
 

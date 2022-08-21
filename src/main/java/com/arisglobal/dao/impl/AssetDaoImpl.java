@@ -13,7 +13,7 @@ import com.arisglobal.entity.Asset;
 public class AssetDaoImpl extends AbstractDao implements AssetDao {
 
 	public void saveAsset(Asset asset) {
-		super.save(asset);
+		super.persist(asset);
 	}
 
 	public void deleteAsset(int asset_id) {
@@ -39,6 +39,6 @@ public class AssetDaoImpl extends AbstractDao implements AssetDao {
 		Criteria criteria = super.getSession().createCriteria(Asset.class);
 		return (ArrayList<Asset>)criteria.list();
 	}
-
+	
 	
 }

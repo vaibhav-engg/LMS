@@ -25,9 +25,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>com.training.entity</value>
-                <value>com.training.dao</value>
-                <value>com.training.dao.impl</value>
+                <value>com.arisglobal.entity</value>
             </list>
         </property>
         <property name="hibernateProperties">
