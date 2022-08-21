@@ -29,7 +29,7 @@ public class CategoryDaoImpl extends AbstractDao implements CategoryDao {
 
 	public void saveCategory(Category category) {
 		// TODO Auto-generated method stub
-		super.save(category);
+		super.persist(category);
 
 	}
 
