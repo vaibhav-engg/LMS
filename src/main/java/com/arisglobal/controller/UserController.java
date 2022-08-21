@@ -21,7 +21,7 @@ public class UserController {
 	public String redirectViewAllUser(Model model)
 	{
 		UserDaoImpl obj = new UserDaoImpl();
-		ArrayList<User> list = obj.getAllUsers();
+		ArrayList<User> list = obj.findAllUsers();
 		model.addAttribute("userlist", list);
 		return "alluser";
 	}
