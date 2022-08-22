@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.arisglobal.entity.Transaction;
 import com.arisglobal.service.TransactionService;
@@ -16,7 +17,7 @@ public class BorrowController {
 	private TransactionService transactionService;
 //	private 
 	@RequestMapping(value="/borrow/{asset_id}/{lms_user_id}")
-	public String borrower(@PathVariable("asset_id") int asset_id,@PathVariable("lms_user_id") int lms_user_id, Model m ) {
+	public String borrower(@PathVariable("asset_id") int asset_id,@PathVariable("lms_user_id") int lms_user_id, @ModelAttribute("message")String msg,Model m ) {
 		Transaction transaction = new Transaction();
 //		TransactionDaoImpl obj = new TransactionDaoImpl();
 		Date date = new Date();
@@ -30,8 +31,7 @@ public class BorrowController {
 		
 		//transactionService.updateTransaction(trans);
 		transactionService.saveTransaction(transaction);
-		String msg = "Borrowed Successfully";
-		m.addAttribute("message", msg);
+		msg = "Borrowed Successfully";
 		return "assetlist";
 	}
 }
