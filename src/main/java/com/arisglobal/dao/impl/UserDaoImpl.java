@@ -25,7 +25,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 	}
 
 	public void deleteUserByID(int id) {
-		Query query = getSession().createQuery("delete from lms_user where id=:id");
+		Query query = getSession().createQuery("delete from User where id=:id");
 		query.setInteger("id", id);
 		query.executeUpdate();	
 	}
