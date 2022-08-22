@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 
 <body>
 	
-	${message}
+	
 	<form:form method="Get" action="search">
 	<table>
 			<tr>
@@ -48,7 +50,7 @@
 			<td>Number Of Copies</td>
 
 		</tr>
-		<c:forEach items="${asset}" var="asset">
+		<c:forEach items="${assetList}" var="asset">
 			<tr>
 				<td>${asset.asset_id}</td>
 				<td>${asset.asset_name}</td>
@@ -59,8 +61,8 @@
 				<td>${asset.created_date}</td>
 				<td>${asset.asset_type}</td>	
 				<td>${asset.number_copies}</td>
-				<td><button><a href"/borrow/${asset.id}">Borrow</a></button></td>
-				
+
+				<td><a href"/borrow/${asset.id}/${userId}"><button>Borrow</button></a></td>
 				
 			</tr>
 		</c:forEach>
