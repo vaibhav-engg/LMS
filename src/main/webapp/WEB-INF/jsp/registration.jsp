@@ -11,28 +11,28 @@
 <title>Welcome to ArisGlobal Library Management System</title>
 <body>
 	<form:form action="submitForm" modelAttribute="registration">  
-        Id: <form:input path="id" type = "integer" />
+        Id: <form:input path="id" type = "integer" placeholder= "EnterId" />
 		<br>
 		<br>  
-        User name: <form:input path="user_name" />
+        User name: <form:input path="user_name" placeholder= "User Name" />
 		<br>
 		<br>
-		Address: <form:input path="address" />
+		Address: <form:input path="address" placeholder= "Address"/>
 		<br>
 		<br>
-		Role Id: <form:input path="role_id" type = "integer"/>
+		Role Id: <form:input path="role_id" type = "integer" placeholder= "Role Id"/>
 		<br>
 		<br>
-		Email : <form:input path="email" />
+		Email : <form:input path="email" placeholder= "Email"/>
 		<br>
 		<br>
-		Phone No.: <form:input path="mobile_number" type = "integer" />
+		Phone No.: <form:input path="mobile_number" type = "integer" placeholder= "Phone No" />
 		<br>
 		<br>
 		Password: <form:input path="password" type = "password" />
 		<br>
 		<br>
-		<input type="submit" value="Regitration" />
+		<input type="submit" value="Submit"/>
 
 	</form:form>
 
