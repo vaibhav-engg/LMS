@@ -19,11 +19,10 @@ import com.arisglobal.service.UserService;
 public class RegistrationController {
 	@Autowired
 	private UserService userService;
+	
 	@RequestMapping("/userform")
 	public String userform(Model model) {
-		// create a reservation object
 		User user = new User();
-		// provide reservation object to the model
 		model.addAttribute("registration", user);
 		return "registration";
 	}
