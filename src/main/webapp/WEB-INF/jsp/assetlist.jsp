@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	
+	${message}<br>
 	
 	<form:form method="Get" action="search">
 	<table>
