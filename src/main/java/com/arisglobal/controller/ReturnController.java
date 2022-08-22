@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.arisglobal.entity.Asset;
-import com.arisglobal.entity.LMSTransaction;
+import com.arisglobal.entity.Transaction;
 import com.arisglobal.entity.LMSUser;
 import com.arisglobal.service.TransactionService;
 import com.arisglobal.service.UserService;
@@ -33,10 +33,10 @@ public class ReturnController {
 	public String returning(Model model, Principal principal) {
 		
 		LMSUser user = userService.findByEmail(principal.getName());
-		List<LMSTransaction> transactionlist = transactionService.getUserTransaction(user.getId());
+		List<Transaction> transactionlist = transactionService.getUserTransaction(user.getId());
 		
 		List<Asset> assetlist = new ArrayList<Asset>();
-		for(LMSTransaction transaction:transactionlist) {
+		for(Transaction transaction:transactionlist) {
 			assetlist.add(assetService.getAssetById(transaction.getAsset_id()));
 		}
 		model.addAttribute("issuedassetlist", assetlist);
@@ -46,7 +46,7 @@ public class ReturnController {
 	
 	@RequestMapping(value="/returnbook/{asset_id}")
 	public String returnbook(@PathVariable("asset_id") int asset_id, Model model) {
-		LMSTransaction transaction = new LMSTransaction();
+		Transaction transaction = new Transaction();
 		Date date = new Date();
 	    transaction.setReturn_date((java.sql.Date) date);
 		transaction.setAsset_id(asset_id);
