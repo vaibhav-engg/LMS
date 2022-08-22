@@ -1,4 +1,4 @@
-package Command;
+package com.arisglobal.command;
 
 public class LoginCommand {
     private String email;
