@@ -27,7 +27,7 @@
                 <td height="350px" valign="top">
                      <%-- Page Content Area--%>
                      <h1>User Dashboard</h1>
-                      TODO : User Options in this page
+                      
                 </td>
             </tr>
              <tr>

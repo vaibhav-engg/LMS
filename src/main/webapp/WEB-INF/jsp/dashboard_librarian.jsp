@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin Dashboard  </title>
+        <title>Librarian Dashboard</title>
          <s:url var="url_css" value="/static/css/style.css"/>
         <link href="${url_css}" rel="stylesheet" type="text/css"/>
     </head>
@@ -26,8 +26,8 @@
             <tr>
                 <td height="350px" valign="top">
                      <%-- Page Content Area--%>
-                     <h1>Admin Dashboard</h1>
-                     
+                     <h1>Librarian Dashboard</h1>
+                      
                 </td>
             </tr>
              <tr>
@@ -38,4 +38,7 @@
             </tr>
         </table>
     </body>
+
+
+
 </html>
