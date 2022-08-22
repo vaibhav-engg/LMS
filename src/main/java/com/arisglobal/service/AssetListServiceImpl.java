@@ -20,7 +20,6 @@ public class AssetListServiceImpl implements AssetListService {
 		
 		assetDao.saveAsset(asset);
 	}
-
 	
 	public void deleteAsset(int asset_id) {
 		
