@@ -1,18 +1,25 @@
 package com.arisglobal.dao;
 
+import javax.sql.DataSource;
+
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 
-public abstract class AbstractDao {
-	@Autowired
+public abstract class AbstractDao extends NamedParameterJdbcDaoSupport{
+    @Autowired
+    public void setDataSource2(DataSource ds){
+        super.setDataSource(ds); 
+    }
+    @Autowired
 	private SessionFactory sessionFactory;
 	protected Session getSession()
 	{
 		return sessionFactory.getCurrentSession();
 	}
-	public void persist(Object entity)
+	public void save(Object entity)
 	{
-		getSession().persist(entity);
+		getSession().save(entity);
 	}
 	public void delete(Object entity)
 	{
