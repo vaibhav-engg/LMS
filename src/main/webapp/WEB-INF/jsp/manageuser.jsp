@@ -7,7 +7,8 @@
 <title>Manage Users</title>
 </head>
 <body>
-<a href="edituser">Edit User details</a>
-<a href="alluser">View a list of all users</a>
+<a href="edituser">Edit User details</a><br>
+<a href="alluser">View a list of all users</a><br>
+<a href="assetlist">Browse the list of assets</a>
 </body>
 </html>
