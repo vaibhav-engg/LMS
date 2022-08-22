@@ -20,6 +20,7 @@ public class AssetListController {
 	@RequestMapping("/assetlist")
 	public String redirectAssetList(Model model)
 	{
+		model.addAttribute("message","");
 		List<Asset> list = assetListService.getAllAsset();
 		model.addAttribute("assetList", list);
 		return "assetlist";
