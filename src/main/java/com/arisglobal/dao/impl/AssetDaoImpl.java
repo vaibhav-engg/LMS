@@ -2,23 +2,25 @@ package com.arisglobal.dao.impl;
 
 import java.util.ArrayList;
 
+
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.arisglobal.dao.AssetDao;
-import com.arisglobal.dao.AbstractDao;
 import com.arisglobal.entity.Asset;
+import com.arisglobal.dao.AbstractDao;
 @Repository("assetDao")
 public class AssetDaoImpl extends AbstractDao implements AssetDao {
 
 	public void saveAsset(Asset asset) {
-		super.persist(asset);
+		super.save(asset);
 	}
 
 	public void deleteAsset(int asset_id) {
-		Query query = super.getSession().createSQLQuery("delete from asset where asset_id = :id");
+		Query query = getSession().createSQLQuery("delete from department where asset_id = :id");
 		query.setInteger("id", asset_id);
 		query.executeUpdate();
 	}
