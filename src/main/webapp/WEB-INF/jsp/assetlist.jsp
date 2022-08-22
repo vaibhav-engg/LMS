@@ -28,10 +28,7 @@
 				<td><input type="text" id="value" name="value" /></td>
 			</tr>
 			
-			<tr>
-				<td></td>
-				<td>input type="submit" value="Submit"></td>
-			</tr>
+			
 	</table>
 			
 	<table border="1px">
@@ -47,6 +44,10 @@
 			<td>Number Of Copies</td>
 
 		</tr>
+		<tr>
+				<td></td>
+				<input type="submit" value="submit" />
+			</tr>
 		<c:forEach items="${asset}" var="asset">
 			<tr>
 				<td>${asset.asset_id}</td>
@@ -62,6 +63,7 @@
 				
 			</tr>
 		</c:forEach>
+		
 	</table>
 
 	</form:form>
