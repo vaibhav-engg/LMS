@@ -15,4 +15,5 @@ public interface AssetListService {
 	public Asset getAssetById(int asset_id);
 
 	public ArrayList<Asset> getAllAsset();
+	
 }
