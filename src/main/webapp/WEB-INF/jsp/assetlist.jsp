@@ -17,8 +17,10 @@
 				<td>Search Asset By:</td>
 				<td><select name="property">
 					<option value="isbn">ISBN</option>
-					<option value="title">Title</option>
+					<option value="asset_name">Title</option>
 					<option value="author">Author</option>
+					<option value="asset_id">Asset Id</option>
+					
 					
 				</select></td>
 			</tr>
@@ -27,8 +29,10 @@
 				<td>Value:</td>
 				<td><input type="text" id="value" name="value" /></td>
 			</tr>
-			
-			
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
 	</table>
 			
 	<table border="1px">
@@ -44,10 +48,6 @@
 			<td>Number Of Copies</td>
 
 		</tr>
-		<tr>
-				<td></td>
-				<input type="submit" value="submit" />
-			</tr>
 		<c:forEach items="${asset}" var="asset">
 			<tr>
 				<td>${asset.asset_id}</td>
@@ -61,9 +61,9 @@
 				<td>${asset.number_copies}</td>
 				<td><button><a href"/borrow/${asset.id}">Borrow</a></button></td>
 				
+				
 			</tr>
 		</c:forEach>
-		
 	</table>
 
 	</form:form>
