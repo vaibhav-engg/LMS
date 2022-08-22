@@ -27,8 +27,10 @@
                 <td height="350px" valign="top">
                      <%-- Page Content Area--%>
                      <h1>Admin Dashboard</h1>
-                      TODO : Admin Options in this page
                 </td>
+                <td><a href="edituser">Edit User Details</a></td>
+                <td><a href="alluser">View All Users Details</a></td>
+                <td><a href="deleteuser">Delete User</a></td>
             </tr>
              <tr>
                 <td height="25px">

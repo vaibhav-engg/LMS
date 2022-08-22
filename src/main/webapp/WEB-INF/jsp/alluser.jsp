@@ -17,6 +17,7 @@ List of users:
 <td>Email</td>
 <td>Role</td>
 <td>Contact number</td>
+<td>Actions</td>
 </tr>  
 <c:forEach var="user" items="${userlist}">  
 <tr>
@@ -25,6 +26,8 @@ List of users:
 <td>${user.email}</td>
 <td>${user.role_id}</td>
 <td>${user.mobile_number}</td>
+<td><a href="edit/${user.id}">Edit</a></td>
+<td><a href="deleteuser/${user.id}">Delete</a></td>
 </tr>
 </c:forEach>  
 </table>  
